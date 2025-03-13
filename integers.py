@@ -8,4 +8,4 @@ print(z)
 a = float(input("Add Num"))
 b = float(input("Add Num"))
 c = a + b 
-print(c)
+print(f"{c}")
