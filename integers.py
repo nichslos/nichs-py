@@ -1,5 +1,5 @@
-x = input("Input Number")
-y = input("Another Number")
-z = int(x) + int(y)
+x = int(input("Another Number"))
+y = int(input("Another Number"))
+z = x + y
 
 print(z)
