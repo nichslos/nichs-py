@@ -6,8 +6,12 @@ hello(name)
 
 
 #Return Function
-def square(x):
-    x = int(input(f"x squared is" ))
-    return x * x
 
-square(4)
+def calcSquare(x):
+    x = int(input("What's x?"))
+    print(f"x squared is {square(x)}")
+
+def square(n):
+    return pow(n, 2)
+
+calcSquare(12)
