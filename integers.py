@@ -1,5 +1,5 @@
-x = 1
-y = 4
+x = input("Input Number")
+y = input("Another Number")
 z = x + y
 
 print(z)
