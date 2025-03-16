@@ -1,6 +1,6 @@
 #cCondition Exercise 1
-x = int((input("Input X")))
-y = int((input("Input Y")))
+x = int(input("Input X"))
+y = int(input("Input Y"))
 
 
 if x < y:
@@ -11,8 +11,8 @@ else :
     print("x is equal to y")
 
 #Condtion Exercise 2
-num = int((input("Input num")))
-num1 = int((input("Input num")))
+num = int(input("Input num"))
+num1 = int(input("Input num"))
 
 if num != num1:
     print("Num is not Equal")
@@ -22,8 +22,8 @@ else:
 
 
 #Condition Exercise 3
-a = int((input("Input a")))
-b = int((input("Input b")))
+a = int(input("Input a"))
+b = int(input("Input b"))
 
 if a < b or a > b:
     print("a is not equal to b")
@@ -36,3 +36,34 @@ if score >= 90 and score < 90:
     print("Grade A")
 elif score >= 80 and score < 90:
     print("Grade B")
+
+#Condtion Exercise 5 PARITY
+x = int(input("What's x "))
+
+if x % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+#Condition Exercise 6 
+def main():
+    x = int(input("What's x? "))
+    if is_even(x):
+        print("Even")
+    else:
+        print("Odd")
+
+def is_even(n):
+    return True if n % 2 == 0 else False
+     
+main()
+
+#Condition Exercise 7
+name = input("Whats you name? ")
+match name:
+    case "Harry" | "Hermione" | "Ron":
+        print("Gryffindor")
+    case "Draco":
+        print("Slytherin")
+    case _:
+        print("Who")
