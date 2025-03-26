@@ -256,6 +256,7 @@ email = input("What's your email? ").strip()
 # (\) Either escapes special characters (permitting you to match characters like '*', '?', and so forth)
 #raw string using r
 #prevent from sample@@@sample.edu
+#\w a word character
 #add other domains
 if re.search(r"^\w+@\w+\.(com|edu|gov|net|org)$", email):
     print("valid")
@@ -299,8 +300,56 @@ email = input("What's your email? ").strip()
 # (\) Either escapes special characters (permitting you to match characters like '*', '?', and so forth)
 #raw string using r
 #prevent from sample@@@sample.edu
+#\w a word character
 #lower case
 if re.search(r"^\w+@\w+\.edu$", email, re.IGNORECASE):
     print("valid")
 else:
     print("invalid")
+
+#RegEx Exercise 14 Validation
+#Import re library
+import re
+
+email = input("What's your email? ").strip()
+
+#re.search(pattern, string, flags=0)
+#Pattern List
+# . any character except a newline
+# * 0 or more repetitions
+# + 1 or more repetitions
+# ? 0 or 1 repetitions
+# {m} m repetitions
+# {m,n} m-n repetitions
+# ^ matches the start of the string
+# $ matches the end ot the string or just before the newline at the end of the string
+# [] set of characters
+# [^] complementing the set
+# \d decimal digit
+# \D not a decimal digit
+# \s whitespace characters
+# \S not a whitespace characters
+# \w word character... as well as numbers and the underscore
+# \W not a word character
+# A|B either A or B
+# (...) a group
+# (?:...) non-capturing version
+
+#Flags
+# re.IGNORECASE
+# re.MULTILINE
+# re.DOTALL
+
+#Pattern Left to Right
+# (\) Either escapes special characters (permitting you to match characters like '*', '?', and so forth)
+#raw string using r
+#prevent from sample@@@sample.edu
+#\w a word character
+#lower case
+#add sub-domain
+if re.search(r"^\w+@(\w\.)?\w+\.edu$", email, re.IGNORECASE):
+    print("valid")
+else:
+    print("invalid")
+
+#       Continue at 1:13:53
