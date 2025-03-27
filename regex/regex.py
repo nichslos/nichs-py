@@ -352,4 +352,11 @@ if re.search(r"^\w+@(\w\.)?\w+\.edu$", email, re.IGNORECASE):
 else:
     print("invalid")
 
-#       Continue at 1:13:53
+#RegEx Exercise 15 Format User
+#Import re library
+#removing , after user input their names
+name = input("What's your name? ").strip()
+if "," in name:
+    last, first = name.split(", ")
+    name = f"{first} {last}"
+rint(f"Hello {name}")
