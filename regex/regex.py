@@ -353,10 +353,305 @@ else:
     print("invalid")
 
 #RegEx Exercise 15 Format User
-#Import re library
+
+#Pattern List
+# . any character except a newline
+# * 0 or more repetitions
+# + 1 or more repetitions
+# ? 0 or 1 repetitions
+# {m} m repetitions
+# {m,n} m-n repetitions
+# ^ matches the start of the string
+# $ matches the end ot the string or just before the newline at the end of the string
+# [] set of characters
+# [^] complementing the set
+# \d decimal digit
+# \D not a decimal digit
+# \s whitespace characters
+# \S not a whitespace characters
+# \w word character... as well as numbers and the underscore
+# \W not a word character
+# A|B either A or B
+# (...) a group
+# (?:...) non-capturing version
+
+
 #removing , after user input their names
+
 name = input("What's your name? ").strip()
 if "," in name:
-    last, first = name.split(", ")
+    last, first = name.split(", ?")
     name = f"{first} {last}"
-rint(f"Hello {name}")
+print(f"Hello {name}")
+
+#RegEx Exercise 16 Format User
+#re.search(pattern, string, flags=0)
+#Pattern List
+# . any character except a newline
+# * 0 or more repetitions
+# + 1 or more repetitions
+# ? 0 or 1 repetitions
+# {m} m repetitions
+# {m,n} m-n repetitions
+# ^ matches the start of the string
+# $ matches the end ot the string or just before the newline at the end of the string
+# [] set of characters
+# [^] complementing the set
+# \d decimal digit
+# \D not a decimal digit
+# \s whitespace characters
+# \S not a whitespace characters
+# \w word character... as well as numbers and the underscore
+# \W not a word character
+# A|B either A or B
+# (...) a group
+# (?:...) non-capturing version
+
+
+#capturing matches
+#reformatted when using , (Nico, Abapo)
+#raw string using r
+import re
+name = input("What's your name? ").strip()
+matches = re.search(r"^(.+), (.+)+$", name)
+if matches:
+    last, first = matches.group()
+    name = f"{first} {last}"
+print(f"hello, {name}")
+
+
+#RegEx Exercise 17 Format User
+#re.search(pattern, string, flags=0)
+#Pattern List
+# . any character except a newline
+# * 0 or more repetitions
+# + 1 or more repetitions
+# ? 0 or 1 repetitions
+# {m} m repetitions
+# {m,n} m-n repetitions
+# ^ matches the start of the string
+# $ matches the end ot the string or just before the newline at the end of the string
+# [] set of characters
+# [^] complementing the set
+# \d decimal digit
+# \D not a decimal digit
+# \s whitespace characters
+# \S not a whitespace characters
+# \w word character... as well as numbers and the underscore
+# \W not a word character
+# A|B either A or B
+# (...) a group
+# (?:...) non-capturing version
+
+
+#capturing matches
+#reformatted when using , (Nico, Abapo)
+#raw string using r
+#using group()
+import re
+name = input("What's your name? ").strip()
+matches = re.search(r"^(.+), *(.+)+$", name)
+if matches:
+    name = matches.group(2) + " " + matches.group(1) 
+print(f"hello, {name}")
+
+
+#RegEx Exercise 18 Format User
+
+#Pattern List
+# . any character except a newline
+# * 0 or more repetitions
+# + 1 or more repetitions
+# ? 0 or 1 repetitions
+# {m} m repetitions
+# {m,n} m-n repetitions
+# ^ matches the start of the string
+# $ matches the end ot the string or just before the newline at the end of the string
+# [] set of characters
+# [^] complementing the set
+# \d decimal digit
+# \D not a decimal digit
+# \s whitespace characters
+# \S not a whitespace characters
+# \w word character... as well as numbers and the underscore
+# \W not a word character
+# A|B either A or B
+# (...) a group
+# (?:...) non-capturing version
+
+
+#capturing matches
+#reformatted when using , (Nico, Abapo)
+#raw string using r
+#using group()
+# := walrus operator
+import re
+name = input("What's your name? ").strip()
+if matches := re.search(r"^(.+), *(.+)+$", name):
+    name = matches.group(2) + " " + matches.group(1) 
+print(f"hello, {name}")
+
+#RegEx Exercise 19 Extracting Information
+
+#Pattern List
+# . any character except a newline
+# * 0 or more repetitions
+# + 1 or more repetitions
+# ? 0 or 1 repetitions
+# {m} m repetitions
+# {m,n} m-n repetitions
+# ^ matches the start of the string
+# $ matches the end ot the string or just before the newline at the end of the string
+# [] set of characters
+# [^] complementing the set
+# \d decimal digit
+# \D not a decimal digit
+# \s whitespace characters
+# \S not a whitespace characters
+# \w word character... as well as numbers and the underscore
+# \W not a word character
+# A|B either A or B
+# (...) a group
+# (?:...) non-capturing version
+
+#Get username name only
+#Example https://twitter.com/username
+#Using replace()
+url = input("URL: ").strip()
+username = url.replace("https://twitter.com/", "")
+print(f"Username: {username}" )
+
+
+#RegEx Exercise 20 Extracting Information
+
+#Pattern List
+# . any character except a newline
+# * 0 or more repetitions
+# + 1 or more repetitions
+# ? 0 or 1 repetitions
+# {m} m repetitions
+# {m,n} m-n repetitions
+# ^ matches the start of the string
+# $ matches the end ot the string or just before the newline at the end of the string
+# [] set of characters
+# [^] complementing the set
+# \d decimal digit
+# \D not a decimal digit
+# \s whitespace characters
+# \S not a whitespace characters
+# \w word character... as well as numbers and the underscore
+# \W not a word character
+# A|B either A or B
+# (...) a group
+# (?:...) non-capturing version
+
+#Get username name only
+#Example https://twitter.com/username
+#Using removeprefix()
+url = input("URL: ").strip()
+username = url.removeprefix("https://twitter.com/")
+print(f"Username: {username}" )
+
+#RegEx Exercise 21 Extracting Information
+#re.sub(pattern, repl, string, count=0, flags=0)
+#Pattern List
+# . any character except a newline
+# * 0 or more repetitions
+# + 1 or more repetitions
+# ? 0 or 1 repetitions
+# {m} m repetitions
+# {m,n} m-n repetitions
+# ^ matches the start of the string
+# $ matches the end ot the string or just before the newline at the end of the string
+# [] set of characters
+# [^] complementing the set
+# \d decimal digit
+# \D not a decimal digit
+# \s whitespace characters
+# \S not a whitespace characters
+# \w word character... as well as numbers and the underscore
+# \W not a word character
+# A|B either A or B
+# (...) a group
+# (?:...) non-capturing version
+
+#Get username name only
+#Example https://twitter.com/username
+import re
+url = input("URL: ").strip()
+
+username = re.sub(r"^(https://)?:/(/www.)?\twitter\.com/", "", url)
+print(f"Username: {username}")
+
+
+#RegEx Exercise 22 Extracting Information
+
+#re.search(pattern, string, flags=0)
+#Pattern List
+# . any character except a newline
+# * 0 or more repetitions
+# + 1 or more repetitions
+# ? 0 or 1 repetitions
+# {m} m repetitions
+# {m,n} m-n repetitions
+# ^ matches the start of the string
+# $ matches the end ot the string or just before the newline at the end of the string
+# [] set of characters
+# [^] complementing the set
+# \d decimal digit
+# \D not a decimal digit
+# \s whitespace characters
+# \S not a whitespace characters
+# \w word character... as well as numbers and the underscore
+# \W not a word character
+# A|B either A or B
+# (...) a group
+# (?:...) non-capturing version
+
+#Get username name only
+#removing other domain google.com except twitter.com
+#Example https://twitter.com/username
+#using group()
+# := walrus operator
+import re
+url = input("URL: ").strip()
+
+if matches := re.search(r"^https?://(?:www\.)?twitter\.com/(.+).+$", url, re.IGNORECASE):
+    print(f"Username:", matches.group(1))
+
+
+#RegEx Exercise 23 Extracting Information
+
+#re.search(pattern, string, flags=0)
+#Pattern List
+# . any character except a newline
+# * 0 or more repetitions
+# + 1 or more repetitions
+# ? 0 or 1 repetitions
+# {m} m repetitions
+# {m,n} m-n repetitions
+# ^ matches the start of the string
+# $ matches the end ot the string or just before the newline at the end of the string
+# [] set of characters
+# [^] complementing the set
+# \d decimal digit
+# \D not a decimal digit
+# \s whitespace characters
+# \S not a whitespace characters
+# \w word character... as well as numbers and the underscore
+# \W not a word character
+# A|B either A or B
+# (...) a group
+# (?:...) non-capturing version
+
+#Get username name only
+#removing other domain google.com except twitter.com
+#Example https://twitter.com/username
+#using group()
+# := walrus operator
+import re
+url = input("URL: ").strip()
+
+if matches := re.search(r"^https?://(?:www\.)?twitter\.com/([a-z0-9_]+)", url, re.IGNORECASE):
+    print(f"Username:", matches.group(1))
+
