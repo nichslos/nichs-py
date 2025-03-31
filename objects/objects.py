@@ -410,3 +410,85 @@ def get_student():
     
 if __name__ == "__main__":
     main()
+
+#Object-Oriented Exercise 17
+#methods
+#Dunder method
+#initialize
+#properties
+class Student:
+    def __init__(self, name, house):
+        self.name = name
+        self.house = house
+        
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+    
+    #Getter
+    #Using @property
+    @property
+    def name(self):
+        return self._name
+    
+    #Setter
+    #Using .setter
+    @name.setter
+    def name(self, name):
+        if not name:
+            raise ValueError("Missing Name")
+        self._name = name
+
+    #Getter
+    #Using @property
+    @property
+    def house(self):
+        return self._house
+
+    #Setter
+    #Using .setter
+    @house.setter
+    def house(self, house):
+        if house not in ["Values Here"]:
+            raise ValueError("Invalid House")
+        self._house = house
+
+
+def main():
+    student = get_student()
+    student._house = "Value Here"
+    print(student)
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    animal = input("Animal: ")
+    #Constructor
+    return Student(name, house, animal)
+    
+if __name__ == "__main__":
+    main()
+
+#Object-Oriented Exercise 17
+#Showing DATA type
+print(type(50))
+print(type("Hello, World"))
+print(type([]))
+print(type(list()))
+print(type({}))
+print(type(dict()))
+
+
+#Object-Oriented Exercise 17
+#Class Methods
+#Using @classmethod
+import random
+
+class Hat:
+    def __init__(self):
+        self.houses = ["Some Value Here"]
+
+    def sort(self, name):
+        print(name, "is in", random.choice(self.houses))
+
+hat = Hat()
+hat.sort("Sample")
