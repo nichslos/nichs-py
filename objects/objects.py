@@ -130,3 +130,283 @@ if __name__ == "__main__":
     main()
 
 #Object-Oriented Exercise 9
+#methods
+#Dunder method
+#initialize
+class Student:
+    def __init__(self, name, house):
+        self.name = name
+        self.house = house
+
+def main():
+    student = get_student()
+    print(f"{student.name} from {student.house}")
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    #Constructor
+    student = Student(name, house)
+    return student
+    
+if __name__ == "__main__":
+    main()
+
+#Object-Oriented Exercise 10
+#methods
+#Dunder method
+#initialize
+class Student:
+    def __init__(self, name, house):
+        #If there is no name
+        if not name:
+            #Create Exception using raise
+            raise ValueError("Missing")
+            #Checks Values
+        if house not in ["Values List Here"]:
+            raise ValueError("Invalid House")
+        self.name = name
+        self.house = house
+
+def main():
+    student = get_student()
+    print(f"{student.name} from {student.house}")
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    #Constructor
+    return Student(name, house)
+    
+if __name__ == "__main__":
+    main()
+
+#Object-Oriented Exercise 11
+#methods
+#Dunder method
+#initialize
+class Student:
+    def __init__(self, name, house):
+        #If there is no name
+        if not name:
+            #Create Exception using raise
+            raise ValueError("Missing")
+            #Checks Values
+        if house not in ["Values List Here"]:
+            raise ValueError("Invalid House")
+        self.name = name
+        self.house = house
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+def main():
+    student = get_student()
+    print(student)
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    #Constructor
+    return Student(name, house)
+    
+if __name__ == "__main__":
+    main()
+
+#Object-Oriented Exercise 12
+#methods
+#Dunder method
+#initialize
+class Student:
+    def __init__(self, name, house, animal):
+        #If there is no name
+        if not name:
+            #Create Exception using raise
+            raise ValueError("Missing")
+            #Checks Values
+        if house not in ["Values List Here"]:
+            raise ValueError("Invalid House")
+        self.name = name
+        self.house = house
+        self.animal = animal
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+def main():
+    student = get_student()
+    print(student)
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    animal = input("Animal: ")
+    #Constructor
+    return Student(name, house, animal)
+    
+if __name__ == "__main__":
+    main()
+
+#Object-Oriented Exercise 13
+#methods
+#Dunder method
+#initialize
+class Student:
+    def __init__(self, name, house, animal):
+        #If there is no name
+        if not name:
+            #Create Exception using raise
+            raise ValueError("Missing")
+            #Checks Values
+        if house not in ["Values List Here"]:
+            raise ValueError("Invalid House")
+        self.name = name
+        self.house = house
+        self.animal = animal
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+    
+    def charm(self):
+        match self.animal:
+            case "Sample":
+                return "1"
+            case "Sample 2":
+                return "2"
+            case "Sample 3":
+                return "3"
+            case _:
+                return ""
+
+def main():
+    student = get_student()
+    print("Sample!")
+    print(student.charm())
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    animal = input("Animal: ")
+    #Constructor
+    return Student(name, house, animal)
+    
+if __name__ == "__main__":
+    main()
+
+#Object-Oriented Exercise 14
+#methods
+#Dunder method
+#initialize
+class Student:
+    def __init__(self, name, house):
+        #If there is no name
+        if not name:
+            #Create Exception using raise
+            raise ValueError("Missing")
+            #Checks Values
+        if house not in ["Values List Here"]:
+            raise ValueError("Invalid House")
+        self.name = name
+        self.house = house
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+def main():
+    student = get_student()
+    print(student)
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    animal = input("Animal: ")
+    #Constructor
+    return Student(name, house, animal)
+    
+if __name__ == "__main__":
+    main()
+
+#Object-Oriented Exercise 15
+#methods
+#Dunder method
+#initialize
+#properties
+class Student:
+    def __init__(self, name, house):
+        #If there is no name
+        if not name:
+            #Create Exception using raise
+            raise ValueError("Missing")
+            #Checks Values
+        if house not in ["Values List Here"]:
+            raise ValueError("Invalid House")
+        self.name = name
+        self.house = house
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+    
+    #Getter
+    def house(self):
+        return self.house
+
+    #Setter
+    def house(self, house):
+        if house not in ["Values Here"]:
+            raise ValueError("Invalid House")
+        self.house = house
+
+
+def main():
+    student = get_student()
+    print(student)
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    animal = input("Animal: ")
+    #Constructor
+    return Student(name, house, animal)
+    
+if __name__ == "__main__":
+    main()
+
+#Object-Oriented Exercise 16
+#methods
+#Dunder method
+#initialize
+#properties
+class Student:
+    def __init__(self, name, house):
+        #If there is no name
+        if not name:
+            #Create Exception using raise
+            raise ValueError("Missing")
+        self.name = name
+        self.house = house
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+    
+    #Getter
+    #Using @property
+    @property
+    def house(self):
+        return self._house
+
+    #Setter
+    #Using .setter
+    @house.setter
+    def house(self, house):
+        if house not in ["Values Here"]:
+            raise ValueError("Invalid House")
+        self._house = house
+
+
+def main():
+    student = get_student()
+    print(student)
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    animal = input("Animal: ")
+    #Constructor
+    return Student(name, house, animal)
+    
+if __name__ == "__main__":
+    main()
