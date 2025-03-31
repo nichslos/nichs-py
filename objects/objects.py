@@ -480,7 +480,6 @@ print(type(dict()))
 
 #Object-Oriented Exercise 17
 #Class Methods
-#Using @classmethod
 import random
 
 class Hat:
@@ -492,3 +491,117 @@ class Hat:
 
 hat = Hat()
 hat.sort("Sample")
+
+#Object-Oriented Exercise 18
+#Class Methods
+import random
+
+class Hat:
+    
+    houses = ["Some Value Here"]
+    #Using @classmethod
+    #cls
+    @classmethod
+    def sort(cls, name):
+        print(name, "is in", random.choice(cls.houses))
+
+Hat.sort("Sample")
+
+
+#Object-Oriented Exercise 19
+#Inheritance
+class Wizard:
+    def __init__(self, name):
+        if not name:
+            raise ValueError("Missing Name")
+        self.name = name
+
+#Inherit from Wizard
+class Student(Wizard):
+    def __init__(self, name, house):
+       #Refer to parent class or superclass using super()
+       super().__init__(name)
+       self.house = house
+
+class Professor(Wizard):
+    def __init__(self, name, subject):
+        #Refer to parent class or superclass using super()
+        super().__init__(name)
+        self.subject = subject
+
+wizard = Wizard("Sample", "Sample")
+student = Student("Sample", "Sample")
+professor = Professor("Sample", "Sample")
+
+#Object-Oriented Exercise 20
+#Operator Overloading
+
+class Vault:
+    def __init__(self, cent=0, peso=0, thousand=0):
+        self.cent = cent
+        self.peso = peso
+        self.thousand = thousand
+
+    def __str__(self):
+        return f"{self.cent} Cents, {self.peso}Pes, {self.thousand} Thousand"
+
+coin = Vault(100, 50, 25)
+print(coin)
+
+
+#Object-Oriented Exercise 20
+#Operator Overloading
+
+class Vault:
+    def __init__(self, cent=0, peso=0, thousand=0):
+        self.cent = cent
+        self.peso = peso
+        self.thousand = thousand
+
+    def __str__(self):
+        return f"{self.cent} Cents, {self.peso}Pes, {self.thousand} Thousand"
+
+coin = Vault(100, 50, 25)
+print(coin)
+
+coin1 = Vault(100, 50, 25)
+print(coin1)
+
+#Add Objects
+totalCents = coin.cent + coin1.cent 
+totalPeso = coin.peso + coin1.peso 
+totalThousands = coin.thousand + coin1.thousand 
+
+total = Vault(totalCents, totalPeso, totalThousands)
+print(total)
+
+#Object-Oriented Exercise 21
+#Operator Overloading
+
+class Vault:
+    def __init__(self, cent=0, peso=0, thousand=0):
+        self.cent = cent
+        self.peso = peso
+        self.thousand = thousand
+
+    def __str__(self):
+        return f"{self.cent} Cents, {self.peso}Pes, {self.thousand} Thousand"
+
+    #object._add_(self, other)
+    def __add__(self, other):
+        cent = self.cent + other.cent
+        peso = self.peso + other.peso
+        thousand = self.thousand + other.thousand
+        return Vault(cent, peso, thousand)
+
+coin = Vault(100, 50, 25)
+print(coin)
+
+coin1 = Vault(100, 50, 25)
+print(coin1)
+
+#Add Objects
+
+
+total = coin + coin1
+print(total)
