@@ -156,3 +156,160 @@ if len(sys.argv) == 1:
     print("meow")
 else:
     print("usage: etc.py")
+
+
+#ETC exercise 9
+#argparse
+#Using sys
+#py etc.py -n 2 or more
+import sys
+
+if len(sys.argv) == 1:
+    print("meow")
+elif len(sys.argv) == 3 and sys.argv[1] == "-n":
+    n = int(sys.argv[2])
+    for _ in range(n):
+        print("meow")
+else:
+    print("usage: etc.py")
+
+#ETC exercise 10
+#argparse
+#py etc.py -n 2 or more
+import argparse
+
+parser = argparse.ArgumentParser(description="Meow like a cat")
+parser.add_argument("-n", help="number of times to meow", type=int)
+args = parser.parse_args
+
+for _ in range(args.n):
+    print("Meow")
+
+#ETC exercise 10
+#unpacking
+first, _ = input("What's your name? ").split(" ")
+print(f"hello, {first}")
+
+#ETC exercise 11
+#unpacking
+def total(cents, peso, thounsands):
+    return (cents * 17 + peso) * 29 + thounsands
+
+print(total(100, 50, 25), "Thousands")
+
+#ETC exercise 12
+#unpacking
+def total(cents, peso, thounsands):
+    return (cents * 17 + peso) * 29 + thounsands
+
+coins = [100, 50, 25]
+
+print(total(*coins), "Thousands")
+
+#ETC exercise 13
+#unpacking
+def total(cents, peso, thounsands):
+    return (cents * 17 + peso) * 29 + thounsands
+
+print(total(cents=100, peso=50, thounsands=25), "Thousands")
+
+#ETC exercise 14
+#unpacking
+def total(cents, peso, thounsands):
+    return (cents * 17 + peso) * 29 + thounsands
+
+coins = {"cents": 100, "peso": 50, "thousands":25}
+
+print(total(**coins), "Thousands")
+
+
+#ETC exercise 14
+#unpacking
+#*args, **kwargs
+def f(*args, **kwargs):
+    print("Positional:", args)
+
+f(100, 50, 25)
+
+#ETC exercise 15
+#unpacking
+#*args, **kwargs
+def f(*args, **kwargs):
+    print("Named:", args)
+
+f(cents=100, peso=50, thousands=25)
+
+#ETC exercise 16
+#map
+def main():
+    yell(["This" "is", "CS50"])
+
+def yell(phrase):
+    uppercased = []
+    for word in words:
+        uppercased.append(word.upper())
+    print(uppercased)
+
+if __name__ == "__main__":
+    main()
+
+#ETC exercise 17
+#map
+#map(function, iterable, ...)
+def main():
+    yell(["This" "is", "CS50"])
+
+def yell(phrase):
+    uppercased = map(str.upper)
+    print(*uppercased)
+
+if __name__ == "__main__":
+    main()
+
+#ETC exercise 18
+#list comprehensions
+def main():
+    yell(["This" "is", "CS50"])
+
+def yell(*words):
+    uppercased = [word.upper() for word in words]
+    print(*uppercased)
+
+if __name__ == "__main__":
+    main()
+
+#ETC exercise 19
+#list comprehensions
+
+students = [
+{"name": "Nico", "house": "Cebu"},
+{"name": "Neo", "house": "Cebu"},
+{"name": "Jane", "house": "Cebu"},
+]
+
+peoples = [
+    student["name"] for student in students["house"] == "Cebu"
+]
+
+for people in sorted(peoples):
+    print(people)
+
+#ETC exercise 19
+#filter
+students = [
+{"name": "Nico", "house": "Cebu"},
+{"name": "Neo", "house": "Cebu"},
+{"name": "Jane", "house": "Pasil"},
+]
+
+def is_people(s):
+    if s["house"] == "Cebu":
+        return s["house"] == "Cebu"
+    
+peoples = filter(is_people, students)
+
+for people in sorted(peoples, key=lambda s: s["name"]):
+    print(people["name"])
+
+#ETC exercise 20
+#dictionary comprehensions
