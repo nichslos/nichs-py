@@ -313,3 +313,95 @@ for people in sorted(peoples, key=lambda s: s["name"]):
 
 #ETC exercise 20
 #dictionary comprehensions
+students = ["Nico", "Jane", "Ron"]
+
+people = []
+
+for student in students:
+    people.append({"name": student, "house": "Cebu"})
+
+print(people)
+
+
+#ETC exercise 21
+#dictionary comprehensions
+students = ["Nico", "Jane", "Ron"]
+
+people = [{"name": student, "house": "Cebu"} for student in students]
+
+print(people)
+
+#ETC exercise 22
+#dictionary comprehensions
+students = ["Nico", "Jane", "Ron"]
+
+people = {student: "Cebu" for student in students}
+
+print(people)
+
+#ETC exercise 23
+#dictionary comprehensions
+students = ["Nico", "Jane", "Ron"]
+
+for i in range(len(students)):
+    print(i + 1, students[i])
+
+#ETC exercise 24
+#enumerate
+students = ["Nico", "Jane", "Ron"]
+
+for i, student in enumerate(students):
+    print(i + 1, student)
+
+#ETC exercise 25
+#generators
+n = int("What's n? ")
+for i in range(n):
+    print("test" * i)
+
+#ETC exercise 26
+#generators
+def main():
+    n = int("What's n? ")
+    for i in range(n):
+        print(sheep(i))
+
+def sheep(n):
+    return "TEST"
+
+if __name__ == "__main__":
+    main()
+
+#ETC exercise 27
+#generators
+def main():
+    n = int("What's n? ")
+    for s in sheep(n):
+        print(s)
+
+def sheep(n):
+    flock = []
+    for i in range(n):
+        flock.append("TEST" * i)
+    return flock
+
+if __name__ == "__main__":
+    main()
+
+#ETC exercise 28
+#generators, yield
+#millions of data
+def main():
+    n = int("What's n? ")
+    for s in sheep(n):
+        print(s)
+
+def sheep(n):
+    for i in range(n):
+        yield "Test" * i
+
+if __name__ == "__main__":
+    main()
+
+#ETC exercise 28
+#generators, yield, iterators
