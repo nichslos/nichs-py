@@ -148,4 +148,11 @@ meows: str = meow(number)
 print(meows, end="")
 
 
-# Continue at 54:59
+#ETC exercise 9
+#Using sys
+import sys
+
+if len(sys.argv) == 1:
+    print("meow")
+else:
+    print("usage: etc.py")
